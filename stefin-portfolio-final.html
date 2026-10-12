@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Stefin Sisil — Developer portfolio">
+<title>Stefin Sisil | Developer Portfolio</title>
+<style>
+:root{
+  --bg:#f7f8fa; --surface:#fff; --text:#101828; --muted:#667085;
+  --line:#e4e7ec; --accent:#2563eb; --accent-dark:#1d4ed8;
+  --max:1320px; --radius:18px; --shadow:0 12px 35px rgba(16,24,40,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 96px),var(--max));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#000;border-bottom:1px solid #222}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:-.02em;color:#fff}
+.navlinks{display:flex;gap:26px;font-size:14px;color:#d1d5db}
+.navlinks a:hover{color:#fff}
+.hero{min-height:calc(100vh - 72px);display:grid;align-items:center;padding:120px 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center;position:relative;min-height:68vh}
+.hero-copy{position:relative;z-index:2;max-width:980px}
+.hero-display{position:absolute;right:-2vw;bottom:-15px;font-size:clamp(72px,13vw,190px);font-weight:900;line-height:.78;letter-spacing:-.085em;text-transform:uppercase;color:#e9edf3;z-index:1;pointer-events:none;user-select:none;text-align:right}
+.hero-display span{display:block}
+.hero-display .accent-word{color:#dfe5ee}
+.eyebrow{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(62px,9vw,126px);line-height:.98;letter-spacing:-.065em;margin:0 0 28px;font-weight:850}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .move{display:inline-block;animation:floatText 4s ease-in-out infinite}
+@keyframes floatText{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+.lead{font-size:22px;color:#475467;max-width:900px;margin:0 0 34px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;border:1px solid var(--line);font-weight:700;font-size:14px;background:#fff}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark)}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.hero-card h3{margin:0 0 18px;font-size:16px}
+.fact{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px}
+.fact:last-child{border-bottom:0}
+.fact span:first-child{color:var(--muted)}
+section{padding:145px 0}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:58px}
+.section-head h2{margin:0;font-size:clamp(64px,7vw,96px);letter-spacing:-.055em;font-weight:900}
+.section-head p{margin:0;color:var(--muted);max-width:650px;font-size:18px}
+.about-grid{display:grid;grid-template-columns:1fr;gap:38px;align-items:stretch}
+.about-statement{display:flex;align-items:flex-end;padding:38px;border-radius:var(--radius);background:#111827;color:#fff;min-height:100%;position:relative;overflow:hidden}
+.about-statement:after{content:"SECURE. BUILD. CREATE.";position:absolute;right:-18px;bottom:12px;font-size:clamp(38px,5vw,76px);font-weight:900;line-height:.82;letter-spacing:-.07em;color:#1f2937;max-width:90%;text-align:right}
+.about-statement-content{position:relative;z-index:1}
+.about-statement .small-label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#93c5fd;font-weight:800;margin-bottom:14px}
+.about-statement h3{font-size:clamp(34px,4vw,58px);line-height:.98;letter-spacing:-.05em;margin:0;max-width:520px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:52px}
+.panel h3{margin:0 0 18px;font-size:28px}
+.panel p{margin:0;color:#475467;font-size:20px;line-height:1.75}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.skill{padding:38px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.skill h3{margin:0 0 16px;font-size:28px;letter-spacing:-.03em}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:16px;padding:10px 14px;background:#f2f4f7;border-radius:8px;color:#344054}
+.timeline{border-left:2px solid var(--line);padding-left:28px}
+.item{position:relative;padding:0 0 36px}
+.item:last-child{padding-bottom:0}
+.item:before{content:"";position:absolute;left:-36px;top:8px;width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px var(--bg)}
+.item .meta{font-size:15px;color:var(--accent);font-weight:700}
+.item h3{margin:10px 0 14px;font-size:38px;letter-spacing:-.025em}
+.item p,.item li{color:#475467;font-size:18px;line-height:1.75}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:38px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:46px;box-shadow:0 8px 25px rgba(16,24,40,.04)}
+.project-number{font-size:13px;color:var(--accent);font-weight:800}
+.project h3{font-size:clamp(31px,3vw,40px);margin:10px 0 16px;letter-spacing:-.03em}
+.project p{color:#475467;font-size:18px;line-height:1.7}
+.project ul{padding-left:24px;color:#475467;font-size:17px;line-height:1.75}
+.contact{background:#111827;color:#fff;border-radius:24px;padding:52px}
+.contact p{color:#cbd5e1;max-width:650px}
+.contact .btn{background:#fff;border-color:#fff}
+footer{padding:35px 0;color:var(--muted);font-size:13px;text-align:center}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+/* Theme switcher */
+.theme-control{display:flex;align-items:center;gap:10px;margin-left:20px}
+.theme-control label{font-size:13px;color:#d1d5db;font-weight:700}
+.theme-select{
+  appearance:none;-webkit-appearance:none;
+  border:1px solid #374151;border-radius:9px;
+  background:#111827;color:#fff;
+  padding:8px 34px 8px 11px;font:600 13px inherit;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,#9ca3af 50%),linear-gradient(135deg,#9ca3af 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+}
+.theme-select:focus{outline:2px solid var(--accent);outline-offset:2px}
+
+@media(max-width:800px){
+  .hero-display{right:-8px;bottom:30px;font-size:72px;opacity:.7}
+  .navlinks{display:none}
+  .hero-grid,.about-grid,.projects{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+  .hero{padding:80px 0}
+  .container{width:min(calc(100% - 36px),var(--max))}
+  section{padding:100px 0}
+  .section-head h2{font-size:52px}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .contact{padding:34px}
+}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start}
+.contact h3{font-size:26px;margin:0 0 10px}
+.contact-links{display:grid;gap:10px}
+.contact-link{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 16px;border:1px solid #374151;border-radius:10px;background:#1f2937}
+.contact-link:hover{background:#273449}
+.contact-link span{color:#9ca3af;font-size:13px}
+.contact-link strong{font-size:14px;color:#fff;text-align:right}
+@media(max-width:800px){.item h3{font-size:30px}.panel p{font-size:18px}.contact-grid{grid-template-columns:1fr}.contact-link{align-items:flex-start;flex-direction:column;gap:4px}.contact-link strong{text-align:left}}
+
+@media(max-width:800px){
+  .theme-control{margin-left:0}
+  .nav{gap:10px}
+  .theme-control label{display:none}
+  .theme-select{padding:7px 30px 7px 9px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">Stefin Sisil</a>
+    <nav class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="theme-control">
+      <label for="themeSelect">Theme</label>
+      <select id="themeSelect" class="theme-select" aria-label="Choose color theme">
+        <option value="blue">Blue</option>
+        <option value="purple">Purple</option>
+        <option value="green">Green</option>
+        <option value="orange">Orange</option>
+        <option value="red">Red</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+            <h1><span class="line">Hi, I’m</span><span class="line"><span class="move">Stefin Sisil.</span></span></h1>
+      <p class="lead">Aspiring Cyber Security Engineer and B.Tech graduate focused on network security, deep learning, full-stack development, and scalable web infrastructure.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="assets/resume.pdf" download>Download Resume</a>
+        <a class="btn" href="https://github.com/stefinsisil" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-head"><h2>About</h2></div>
+  <div class="about-grid">
+    <div class="panel reveal">
+  <h3>Profile</h3>
+  <p>I’m an aspiring Cyber Security Engineer and B.Tech graduate with a strong foundation in network security, deep learning, full-stack development, and scalable web infrastructure. I enjoy turning technical ideas into practical systems that solve real-world problems.</p>
+  <p style="margin-top:24px">My technical interests include network monitoring, security-focused applications, web technologies, automation, and intelligent systems. I like working across both development and infrastructure, from writing application logic to designing systems that can be monitored and managed efficiently.</p>
+  <p style="margin-top:24px">I have worked with technologies including Python, C++, Go, Java, JavaScript, TypeScript, HTML, CSS, SQL, MySQL, Docker, GitHub, REST APIs, Linux, and deep learning tools. I also enjoy exploring practical security concepts through projects involving network traffic analysis and DDoS detection.</p>
+  <p style="margin-top:24px">My project experience includes building a Docker-based hosting control panel with automated SSL management, real-time logs, resource tracking, and container controls, as well as developing a DDoS detection pipeline that combines Go-based packet monitoring with a Python deep-learning inference engine.</p>
+  <p style="margin-top:24px">Beyond technical development, I have experience in digital marketing, SEO, web performance, and web analytics. This combination helps me understand both the technical side of digital products and how users interact with them.</p>
+</div>
+<h3>Turning technical ideas into practical digital systems.</h3></div></div>
+  </div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+  <div class="section-head"><h2>Skills</h2></div>
+  <div class="skills">
+    <div class="skill reveal"><h3>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Go</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Git</span></div></div>
+    <div class="skill reveal"><h3>Cyber Security</h3><div class="tags"><span class="tag">Network Security</span><span class="tag">Cyber Security</span><span class="tag">DDoS Detection</span><span class="tag">Network Monitoring</span><span class="tag">Linux</span><span class="tag">Kali Linux</span></div></div>
+    <div class="skill reveal"><h3>Web & Database</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Web Development</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Full-Stack Development</span></div></div>
+    <div class="skill reveal"><h3>Tools & Platforms</h3><div class="tags"><span class="tag">Docker</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">REST APIs</span><span class="tag">App Development</span></div></div>
+    <div class="skill reveal"><h3>AI & Data</h3><div class="tags"><span class="tag">Deep Learning</span><span class="tag">Machine Learning</span><span class="tag">Data Analysis</span><span class="tag">Web Analytics</span></div></div>
+    <div class="skill reveal"><h3>Languages</h3><div class="tags"><span class="tag">English</span><span class="tag">Malayalam</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+  <div class="section-head"><h2>Experience</h2></div>
+  <div class="timeline">
+    <div class="item reveal"><div class="meta">JAN 2023 — PRESENT</div><h3>Marketing Manager · ktucyber.com</h3><ul>
+      <li>Led digital marketing initiatives and SEO strategies to improve organic traffic and search visibility.</li>
+      <li>Collaborated with development teams to optimize web performance and metadata structures.</li>
+      <li>Used web analytics to identify trends and user behavior and improve content strategy.</li>
+    </ul></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-head"><h2>Projects</h2></div>
+  <div class="projects">
+    <article class="project reveal"><div class="project-number">01</div><h3>Hosting Control Panel</h3><p>A centralized Docker-based control panel designed to streamline deployment and management of web applications, databases, and microservices.</p><ul><li>Automated SSL certificate management using Let’s Encrypt.</li><li>Implemented real-time logs and resource tracking.</li><li>Built responsive controls for environment variables, port mapping, and container lifecycles.</li><li>Reduced manual configuration time by 60%.</li></ul></article>
+    <article class="project reveal"><div class="project-number">02</div><h3>DDoS Attack Detection using Deep Learning</h3><p>A real-time network monitoring and inference pipeline for identifying DDoS attack vectors from live traffic.</p><ul><li>Developed a high-performance packet monitor in Go.</li><li>Trained and deployed a deep learning model for DDoS classification.</li><li>Connected the Go packet sniffer with a Python inference engine.</li><li>Designed the pipeline for proactive mitigation of malicious requests.</li></ul></article>
+  </div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+  <div class="section-head"><h2>Education</h2></div>
+  <div class="timeline">
+    <div class="item reveal"><div class="meta">JAN 2022 — JAN 2026</div><h3>B.Tech in Cyber Security</h3><p>University College of Engineering Thodupuzha · CGPA: 6.7</p></div>
+    <div class="item reveal"><div class="meta">JAN 2020 — JAN 2022</div><h3>12th Grade — Science</h3><p>Kerala State Higher Secondary Education Board · Percentage: 72%</p></div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="contact reveal">
+    <div class="section-head" style="margin-bottom:28px"><h2>Let’s Connect</h2></div>
+    <div class="contact-grid">
+      <div>
+        <h3>Get in touch</h3>
+        <p>If you would like to discuss a project, collaboration, or technology opportunity, feel free to contact me.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:stefinsisil@gmail.com">
+          <span>Email</span><strong>stefinsisil@gmail.com</strong>
+        </a>
+        <a class="contact-link" href="https://github.com/stefinsisil" target="_blank" rel="noopener">
+          <span>GitHub</span><strong>github.com/stefinsisil</strong>
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/stefin-sisil-1b69923ba" target="_blank" rel="noopener">
+          <span>LinkedIn</span><strong>View LinkedIn Profile</strong>
+        </a>
+        <a class="contact-link" href="assets/resume.pdf" download>
+          <span>Resume</span><strong>Download Resume</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>© 2026 Stefin Sisil. Built with a clean, responsive design.</footer>
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+
+const themes={
+  blue:{accent:"#2563eb",accentDark:"#1d4ed8",bg:"#f7f8fa",surface:"#ffffff",text:"#101828",muted:"#667085",line:"#e4e7ec"},
+  purple:{accent:"#7c3aed",accentDark:"#6d28d9",bg:"#faf8ff",surface:"#ffffff",text:"#171329",muted:"#6b6480",line:"#e7e1f2"},
+  green:{accent:"#059669",accentDark:"#047857",bg:"#f6faf8",surface:"#ffffff",text:"#10231d",muted:"#61756d",line:"#dce9e4"},
+  orange:{accent:"#ea580c",accentDark:"#c2410c",bg:"#fffaf6",surface:"#ffffff",text:"#24150e",muted:"#77665d",line:"#eee0d7"},
+  red:{accent:"#dc2626",accentDark:"#b91c1c",bg:"#fff8f8",surface:"#ffffff",text:"#241010",muted:"#776363",line:"#eddede"}
+};
+
+function applyTheme(name){
+  const theme=themes[name]||themes.blue;
+  const root=document.documentElement;
+  root.style.setProperty("--accent",theme.accent);
+  root.style.setProperty("--accent-dark",theme.accentDark);
+  root.style.setProperty("--bg",theme.bg);
+  root.style.setProperty("--surface",theme.surface);
+  root.style.setProperty("--text",theme.text);
+  root.style.setProperty("--muted",theme.muted);
+  root.style.setProperty("--line",theme.line);
+  localStorage.setItem("portfolioTheme",name);
+}
+
+const themeSelect=document.getElementById("themeSelect");
+const savedTheme=localStorage.getItem("portfolioTheme")||"blue";
+themeSelect.value=savedTheme;
+applyTheme(savedTheme);
+themeSelect.addEventListener("change",e=>applyTheme(e.target.value));
+</script>
+</body>
+</html>
